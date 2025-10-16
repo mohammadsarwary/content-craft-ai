@@ -1,0 +1,80 @@
+---
+alwaysApply: true
+---
+# ContentCraft AI - Project Rules
+
+## زبان پاسخ‌دهی
+**همیشه به فارسی پاسخ بده!** کاربر فارسی زبان است و ترجیح می‌دهد توضیحات و راهنمایی‌ها به فارسی باشند.
+
+## شروع هر Conversation
+وقتی کاربر با تو شروع به کار می‌کنه، **اول از همه**:
+1. سلام کن و بگو آماده کمک هستی
+2. `todo-management/PROJECT_STATUS.md` رو بخون
+3. **بهش بگو الان بهتره بریم سراغ کدوم تسک** بر اساس اولویت‌ها (HIGH → MEDIUM → LOW)
+4. لیست 2-3 تای از مهم‌ترین کارهای باز رو نشونش بده
+5. ازش بپرس می‌خواد کجا شروع کنید
+
+## Project Overview
+This is a WordPress plugin + FastAPI backend for AI-powered content generation (blog posts, WooCommerce products, SEO optimization, brand voice training, image analysis).
+
+## Essential Files to Read FIRST (in order):
+1. `README.md` - Project overview and quick start
+2. `AI_AGENT_INSTRUCTIONS.md` - Complete guide for AI agents (architecture, current status, responsibilities)
+3. `todo-management/PROJECT_STATUS.md` - Live status of tasks (completed/pending)
+4. `docs/architecture.md` - System architecture and data flow
+5. `docs/api-contracts.md` - API request/response schemas
+
+## Project Structure:
+- `plugin/` - WordPress plugin (PHP 7.4+)
+  - `contentcraft-ai.php` - Main plugin file
+  - `includes/` - Core classes (autoloader, admin, REST API, API client, logger, helpers, hooks)
+  - `admin/views/` - HTML templates for admin UI
+  - `admin/assets/` - CSS/JS for admin
+- `backend/` - FastAPI Python service
+  - `app/main.py` - Main FastAPI app
+  - `app/routers/` - API routes (content, product, seo, brand, image)
+  - `app/services/` - Business logic (LLM provider, prompts, SEO, brand voice, image analyzer)
+  - `app/models/schemas.py` - Pydantic models
+- `infra/` - Docker setup (docker-compose.yml, Dockerfile, nginx.conf)
+- `docs/` - Documentation
+- `todo-management/` - Task tracking
+
+## Critical Rules:
+1. **NEVER** expose API keys to frontend - all API calls go through WordPress REST → FastAPI
+2. **ALWAYS** follow WordPress security: nonce, capabilities, sanitize input, escape output
+3. **ALWAYS** use wp_kses_post for LLM-generated HTML
+4. Use **Vanilla JS** for admin UI (no React/Vue)
+5. All LLM outputs must be **strict JSON format**
+6. Support 3 providers: OpenAI, Anthropic, Ollama (abstraction in `backend/app/services/llm_provider.py`)
+7. Before editing, check `AI_AGENT_INSTRUCTIONS.md` for "DO NOT CHANGE" sections
+8. **CRITICAL**: After completing ANY task or making changes, you MUST update `todo-management/PROJECT_STATUS.md` to reflect current progress (mark tasks as completed, update percentages, add new tasks if needed)
+
+## Current Status:
+✅ Completed: WordPress skeleton, FastAPI backend, Admin UI (Settings, Dashboard, Content Studio), API client, Logger, Docker setup
+⏳ In Progress: Brand Voice JS, Product Writer JS, Bulk Generator
+❌ Pending: Tests (PHPUnit/pytest), CI/CD, i18n files
+
+## When Starting Work:
+1. Read `AI_AGENT_INSTRUCTIONS.md` completely
+2. Check `todo-management/PROJECT_STATUS.md` for current tasks
+3. For architecture questions → read `docs/architecture.md`
+4. For API questions → read `docs/api-contracts.md`
+5. Look at existing files as examples before creating new ones
+
+## After Completing Work:
+1. **ALWAYS** update `todo-management/PROJECT_STATUS.md` with:
+   - Mark completed tasks as ✅ COMPLETED
+   - Update progress percentages
+   - Move tasks from "In Progress" to "Completed"
+   - Add any new tasks discovered during work
+   - Update the statistics (total files, lines of code if significantly changed)
+2. If you made architectural changes, update `AI_AGENT_INSTRUCTIONS.md` as well
+3. Test your changes work correctly
+
+## Key Technical Stack:
+- WordPress 5.8+, WooCommerce 7.x/8.x
+- PHP 7.4+, WordPress Coding Standards (PHPCS)
+- Python 3.11+, FastAPI, Pydantic, Poetry/uv
+- Docker, Redis (optional), Nginx
+- REST API namespace: `contentcraft/v1`
+- Textdomain: `contentcraft-ai`

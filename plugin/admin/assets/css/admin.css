@@ -1,0 +1,693 @@
+/**
+ * ContentCraft AI - Admin Styles
+ * Modern, beautiful UI for WordPress admin
+ */
+
+/* ===================================
+   CSS Variables (Theme Colors)
+   =================================== */
+:root {
+	--cc-primary: #2271b1;
+	--cc-primary-hover: #135e96;
+	--cc-secondary: #646970;
+	--cc-success: #00a32a;
+	--cc-danger: #d63638;
+	--cc-warning: #dba617;
+	--cc-light: #f0f0f1;
+	--cc-white: #ffffff;
+	--cc-border: #c3c4c7;
+	--cc-text: #1d2327;
+	--cc-text-light: #646970;
+	--cc-shadow: rgba(0, 0, 0, 0.1);
+	--cc-radius: 8px;
+	--cc-transition: all 0.3s ease;
+}
+
+/* ===================================
+   Layout & Typography
+   =================================== */
+.contentcraft-page-title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 28px;
+	font-weight: 600;
+	color: var(--cc-text);
+	margin-bottom: 8px;
+}
+
+.contentcraft-page-title .dashicons {
+	color: var(--cc-primary);
+	font-size: 32px;
+	width: 32px;
+	height: 32px;
+}
+
+.contentcraft-subtitle {
+	font-size: 14px;
+	color: var(--cc-text-light);
+	margin-bottom: 24px;
+}
+
+/* ===================================
+   Cards
+   =================================== */
+.contentcraft-card {
+	background: var(--cc-white);
+	border: 1px solid var(--cc-border);
+	border-radius: var(--cc-radius);
+	box-shadow: 0 1px 3px var(--cc-shadow);
+	margin-bottom: 20px;
+	overflow: hidden;
+	transition: var(--cc-transition);
+}
+
+.contentcraft-card:hover {
+	box-shadow: 0 4px 12px var(--cc-shadow);
+}
+
+.contentcraft-card-header {
+	background: linear-gradient(135deg, #f6f7f7 0%, #fff 100%);
+	padding: 20px 24px;
+	border-bottom: 1px solid var(--cc-border);
+}
+
+.contentcraft-card-header h2,
+.contentcraft-card-header h3 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--cc-text);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.contentcraft-card-header .dashicons {
+	color: var(--cc-primary);
+}
+
+.contentcraft-card-body {
+	padding: 24px;
+}
+
+/* ===================================
+   Content Studio Layout
+   =================================== */
+.contentcraft-studio-container {
+	display: grid;
+	grid-template-columns: 450px 1fr;
+	gap: 24px;
+	margin-top: 20px;
+}
+
+@media (max-width: 1400px) {
+	.contentcraft-studio-container {
+		grid-template-columns: 1fr;
+	}
+	
+	.contentcraft-studio-form-panel {
+		order: 1;
+	}
+	
+	.contentcraft-studio-result-panel {
+		order: 2;
+	}
+}
+
+/* ===================================
+   Form Elements
+   =================================== */
+.contentcraft-form-group {
+	margin-bottom: 20px;
+}
+
+.contentcraft-label {
+	display: block;
+	font-weight: 600;
+	font-size: 13px;
+	color: var(--cc-text);
+	margin-bottom: 8px;
+}
+
+.contentcraft-label .required {
+	color: var(--cc-danger);
+	margin-left: 4px;
+}
+
+.contentcraft-input,
+.contentcraft-select {
+	width: 100%;
+	padding: 10px 12px;
+	font-size: 14px;
+	border: 1px solid var(--cc-border);
+	border-radius: 6px;
+	background: var(--cc-white);
+	color: var(--cc-text);
+	transition: var(--cc-transition);
+}
+
+.contentcraft-input:focus,
+.contentcraft-select:focus {
+	outline: none;
+	border-color: var(--cc-primary);
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.1);
+}
+
+.contentcraft-input-lg {
+	padding: 12px 16px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.contentcraft-hint {
+	margin: 6px 0 0 0;
+	font-size: 12px;
+	color: var(--cc-text-light);
+}
+
+.contentcraft-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+/* ===================================
+   Checkboxes
+   =================================== */
+.contentcraft-checkbox-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.contentcraft-checkbox {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 12px;
+	background: var(--cc-light);
+	border: 1px solid var(--cc-border);
+	border-radius: 6px;
+	cursor: pointer;
+	transition: var(--cc-transition);
+}
+
+.contentcraft-checkbox:hover {
+	background: var(--cc-white);
+	border-color: var(--cc-primary);
+}
+
+.contentcraft-checkbox input[type="checkbox"] {
+	margin: 0;
+}
+
+.contentcraft-checkbox input[type="checkbox"]:checked + span {
+	color: var(--cc-primary);
+	font-weight: 600;
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+.contentcraft-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: var(--cc-transition);
+	text-decoration: none;
+}
+
+.contentcraft-btn .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.contentcraft-btn-primary {
+	background: var(--cc-primary);
+	color: var(--cc-white);
+}
+
+.contentcraft-btn-primary:hover {
+	background: var(--cc-primary-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(34, 113, 177, 0.3);
+}
+
+.contentcraft-btn-secondary {
+	background: var(--cc-light);
+	color: var(--cc-text);
+	border: 1px solid var(--cc-border);
+}
+
+.contentcraft-btn-secondary:hover {
+	background: var(--cc-white);
+	border-color: var(--cc-primary);
+	color: var(--cc-primary);
+}
+
+.contentcraft-btn-success {
+	background: var(--cc-success);
+	color: var(--cc-white);
+}
+
+.contentcraft-btn-success:hover {
+	background: #008a24;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 163, 42, 0.3);
+}
+
+.contentcraft-btn-lg {
+	padding: 14px 28px;
+	font-size: 16px;
+	width: 100%;
+	justify-content: center;
+}
+
+.contentcraft-btn-sm {
+	padding: 6px 12px;
+	font-size: 12px;
+}
+
+.contentcraft-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none !important;
+}
+
+/* ===================================
+   Loading State
+   =================================== */
+.contentcraft-loading-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 40px;
+	text-align: center;
+}
+
+.contentcraft-loading-spinner {
+	margin-bottom: 24px;
+}
+
+.contentcraft-loading-spinner .spinner {
+	display: block;
+	width: 60px;
+	height: 60px;
+	border: 4px solid var(--cc-light);
+	border-top-color: var(--cc-primary);
+	border-radius: 50%;
+	animation: cc-spin 1s linear infinite;
+}
+
+@keyframes cc-spin {
+	to { transform: rotate(360deg); }
+}
+
+.contentcraft-progress-bar {
+	width: 100%;
+	max-width: 400px;
+	height: 8px;
+	background: var(--cc-light);
+	border-radius: 4px;
+	overflow: hidden;
+	margin-top: 24px;
+}
+
+.contentcraft-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, var(--cc-primary), #0073aa);
+	animation: cc-progress 2s ease-in-out infinite;
+}
+
+@keyframes cc-progress {
+	0% { width: 0%; }
+	50% { width: 70%; }
+	100% { width: 100%; }
+}
+
+/* ===================================
+   Empty State
+   =================================== */
+.contentcraft-empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 40px;
+	text-align: center;
+	background: linear-gradient(135deg, #f6f7f7 0%, #fff 100%);
+	border: 2px dashed var(--cc-border);
+	border-radius: var(--cc-radius);
+}
+
+.contentcraft-empty-icon {
+	width: 80px;
+	height: 80px;
+	background: var(--cc-primary);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.contentcraft-empty-icon .dashicons {
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
+	color: var(--cc-white);
+}
+
+.contentcraft-empty-state h3 {
+	font-size: 20px;
+	color: var(--cc-text);
+	margin-bottom: 8px;
+}
+
+.contentcraft-empty-state p {
+	font-size: 14px;
+	color: var(--cc-text-light);
+	max-width: 400px;
+}
+
+/* ===================================
+   Error State
+   =================================== */
+.contentcraft-error-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 40px;
+	text-align: center;
+	background: #fff5f5;
+	border: 2px solid #ffdddd;
+	border-radius: var(--cc-radius);
+}
+
+.contentcraft-error-icon {
+	width: 80px;
+	height: 80px;
+	background: var(--cc-danger);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.contentcraft-error-icon .dashicons {
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
+	color: var(--cc-white);
+}
+
+.contentcraft-error-state h3 {
+	font-size: 20px;
+	color: var(--cc-danger);
+	margin-bottom: 8px;
+}
+
+.contentcraft-error-state p {
+	font-size: 14px;
+	color: var(--cc-text);
+	margin-bottom: 24px;
+}
+
+/* ===================================
+   Tabs
+   =================================== */
+.contentcraft-tabs {
+	display: flex;
+	gap: 4px;
+	border-bottom: 2px solid var(--cc-light);
+	margin-bottom: 24px;
+}
+
+.contentcraft-tab {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 12px 20px;
+	background: transparent;
+	border: none;
+	border-bottom: 3px solid transparent;
+	color: var(--cc-text-light);
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--cc-transition);
+}
+
+.contentcraft-tab:hover {
+	color: var(--cc-primary);
+	background: var(--cc-light);
+}
+
+.contentcraft-tab.active {
+	color: var(--cc-primary);
+	border-bottom-color: var(--cc-primary);
+}
+
+.contentcraft-tab-pane {
+	display: none;
+}
+
+.contentcraft-tab-pane.active {
+	display: block;
+	animation: cc-fade-in 0.3s ease;
+}
+
+@keyframes cc-fade-in {
+	from { opacity: 0; transform: translateY(10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================
+   Content Preview
+   =================================== */
+.contentcraft-content-preview {
+	padding: 24px;
+	background: var(--cc-white);
+	border: 1px solid var(--cc-border);
+	border-radius: var(--cc-radius);
+	min-height: 400px;
+	line-height: 1.8;
+}
+
+.contentcraft-content-preview h1,
+.contentcraft-content-preview h2,
+.contentcraft-content-preview h3 {
+	color: var(--cc-text);
+	margin-top: 24px;
+	margin-bottom: 12px;
+}
+
+.contentcraft-content-preview h1 {
+	font-size: 32px;
+	border-bottom: 3px solid var(--cc-primary);
+	padding-bottom: 12px;
+}
+
+.contentcraft-content-preview h2 {
+	font-size: 24px;
+	color: var(--cc-primary);
+}
+
+.contentcraft-content-preview h3 {
+	font-size: 18px;
+}
+
+.contentcraft-content-preview p {
+	margin-bottom: 16px;
+	color: var(--cc-text);
+}
+
+.contentcraft-content-preview ul,
+.contentcraft-content-preview ol {
+	margin: 16px 0;
+	padding-left: 24px;
+}
+
+.contentcraft-content-preview li {
+	margin-bottom: 8px;
+}
+
+/* ===================================
+   Code Editor
+   =================================== */
+.contentcraft-code-editor {
+	width: 100%;
+	min-height: 400px;
+	padding: 16px;
+	font-family: 'Courier New', monospace;
+	font-size: 13px;
+	line-height: 1.6;
+	background: #f6f7f7;
+	border: 1px solid var(--cc-border);
+	border-radius: var(--cc-radius);
+	resize: vertical;
+}
+
+/* ===================================
+   SEO Data Display
+   =================================== */
+.contentcraft-seo-data {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.contentcraft-seo-item {
+	padding: 16px;
+	background: var(--cc-light);
+	border-radius: var(--cc-radius);
+}
+
+.contentcraft-seo-item label {
+	display: block;
+	font-weight: 600;
+	font-size: 12px;
+	color: var(--cc-text-light);
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	letter-spacing: 0.5px;
+}
+
+.contentcraft-seo-value {
+	font-size: 14px;
+	color: var(--cc-text);
+	word-wrap: break-word;
+}
+
+/* ===================================
+   Generation Stats
+   =================================== */
+.contentcraft-generation-stats {
+	display: flex;
+	gap: 16px;
+	padding: 16px;
+	background: var(--cc-light);
+	border-radius: var(--cc-radius);
+	margin-top: 16px;
+}
+
+.stat-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	color: var(--cc-text-light);
+}
+
+.stat-item .dashicons {
+	color: var(--cc-primary);
+}
+
+/* ===================================
+   Tips Card
+   =================================== */
+.contentcraft-tips-card {
+	background: linear-gradient(135deg, #fff7e6 0%, #fff 100%);
+}
+
+.contentcraft-tips-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.contentcraft-tips-list li {
+	position: relative;
+	padding-left: 24px;
+	margin-bottom: 12px;
+	font-size: 13px;
+	color: var(--cc-text);
+	line-height: 1.6;
+}
+
+.contentcraft-tips-list li:before {
+	content: "💡";
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* ===================================
+   Result Header Actions
+   =================================== */
+.contentcraft-result-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.contentcraft-result-actions {
+	display: flex;
+	gap: 8px;
+}
+
+/* ===================================
+   Result Footer
+   =================================== */
+.contentcraft-result-footer {
+	display: flex;
+	gap: 12px;
+	padding-top: 24px;
+	border-top: 1px solid var(--cc-border);
+	margin-top: 24px;
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+.contentcraft-text-center {
+	text-align: center;
+}
+
+.contentcraft-mt-4 {
+	margin-top: 24px;
+}
+
+.contentcraft-mb-4 {
+	margin-bottom: 24px;
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+@media (max-width: 782px) {
+	.contentcraft-form-row {
+		grid-template-columns: 1fr;
+	}
+	
+	.contentcraft-result-footer {
+		flex-direction: column;
+	}
+	
+	.contentcraft-btn-lg {
+		padding: 12px 20px;
+	}
+}
+
+/* ===================================
+   Animations
+   =================================== */
+@keyframes cc-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+
+.contentcraft-pulse {
+	animation: cc-pulse 2s ease-in-out infinite;
+}
+
